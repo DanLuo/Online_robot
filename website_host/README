@@ -1,0 +1,19 @@
+Online Robolab Platform
+This package is a web-based programming environment, which adapt the interface from
+the robolab interface. The communication between the web interface and the ev3 brick
+is through the socket message. In this case, no physical connection is required for
+programing the ev3.
+
+How to use:
+1. The website_host is the package that host the web interface, the server code (server.py)
+could be ran on any python enabled computer or servers.
+
+2. The ev3_server is the package that need to be installed on the ev3. In our case, the ev3
+is running a linux OS (ev3dev). Therefore, this package could be scp to the brick. ev3Server.py
+is the server code that need to be ran on the ev3. You can do this by either doing ssh or make
+it as an executable file.
+
+3. You need to change the web_host_IP variable in the "register()" function to your web server' ip
+
+4. You need to install the simple-websocket-server package for you python environment to enable
+the websocket communication

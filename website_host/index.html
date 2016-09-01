@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <!--<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>-->
+    <script src="jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="jqueryui/jquery-ui.js"></script>
+    <!--<script type="text/javascript" src="script.js"></script>-->
+    <script src="bootstrap_js/bootstrap.min.js"></script>
+    <script type="text/javascript"src="jquery-fsortable.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+    </script>
+    <link rel="stylesheet" href="bootstrap_css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="shortcut icon" href="">
+    <title>Welcome to the online Robolab Platform!</title>
+    <script type="text/javascript" src="script.js"></script>
+
+  </head>
+  <body onload="onLoad()">
+    <div id="smartArea">
+        <div id="menu">
+            <div id="EV3List">
+                <div class="dropdown" id="selector">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Available EV3<span class="caret"></span></button>
+                    <ul class="dropdown-menu" id="dropdown-menu"></ul>
+                </div>
+                <br>
+                <!--<button onclick="GetEv3List(&quot;logfile.txt&quot;)">Update List</button>-->
+                <button onclick="unbind()" class="btn btn-primary">Disconnect</button>
+                <button onclick="acquireEV3()" class="btn btn-primary">Update</button>
+            </div>
+            <br><br><br><br>
+
+
+
+            <div id="componentList">
+                <div class="components">
+                    <div type="button" data-toggle="dropdown">Motor
+                        <span class="caret"></span>
+                    </div>
+                    <ul class="dropdown-menu" id="motorSection">
+                        <li>
+                            <img src="style/timer.png" id="style/timer.png" class="motorelements" height="60" width="60" onclick="create(this.id)">
+                            <img src="style/stop.png" id="style/stop.png" class="motorelements" height="60" width="60" onclick="create(this.id)">
+                        </li>
+                        <li>
+                            <img src="style/turnleft.png" id="style/turnleft.png" class="motorelements" onclick="create(this.id)">
+                            <img src="style/turnright.png" id="style/turnright.png" class="motorelements" onclick="create(this.id)">
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="components">
+                    <div type="button" data-toggle="dropdown">Sensor
+                        <span class="caret"></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <img src="style/light1.png" id="style/light1.png" class="motorelements" onclick="create(this.id)">
+                            <img src="style/light0.png" id="style/light0.png" class="motorelements" onclick="create(this.id)">
+                        </li>
+                        <li>
+                            <img src="style/touch1.png" id="style/touch1.png" class="motorelements" onclick="create(this.id)">
+                            <img src="style/touch0.png" id="style/touch0.png" class="motorelements" onclick="create(this.id)">
+                        </li>
+                        <li>
+                            <img src="style/ultraLongerThan.png" id="style/ultraLongerThan.png" class="motorelements" onclick="create(this.id)">
+                            <img src="style/ultraShorterThan.png" id="style/ultraShorterThan.png" class="motorelements" onclick="create(this.id)">
+                        </li>
+                    </ul>
+                </div>
+                <!--<div class="components">Sound</div>
+                <div class="components">LEDs</div>-->
+      <!--
+      <button style="margin-top:10px" onclick="BumperCarSetup()">Bumper Car</button>
+      <button style="margin-top:10px" onclick="newTarget()">Set Programable Block</button>
+    -->
+                <select id="presets" style="margin-left:5%;margin-top:10%;width:90%" onchange="presets(this)">
+                    <option>Select Pre-Set Themes</option>
+                    <option>Pilot 1</option>
+                    <option>Pilot 3</option>
+                    <option>Pilot 5</option>
+                </select>
+                <br>
+                <textarea id="test_result"  style="margin-left:5%;margin-top:5%;width:80%;height:8%"></textarea>
+                <button onclick="printItemList()" style="margin-left:5%;margin-top:5%" class="btn btn-primary">Test</button>
+          </div>
+  </div>
+
+<div id="workingArea">
+     <!--<button type="button" id="mainRun" onclick="runCommand()">Run Program</button>-->
+     <button type="button" class="btn btn-primary" id="stopAll" onclick="stopAll()">Stop Program</button>
+     <button type="button" class="btn btn-primary" id="clearAll" onclick="clearNodes('parkinglot')">Clear</button>
+
+     <div id="parkinglot">
+     </div>
+     <div id="looping" style="position:absolute;left:300px;top:350px">
+            <img src="style/onetime.png" id="setloop" data-toggle="dropdown" style="width:65px;height:60px;cursor:pointer">
+    <!--<img src="style/onetime.png" class="commands" data-toggle="dropdown" style="left:300px">-->
+            <ul class="dropdown-menu">
+                <li>
+                    <img src="style/onetime.png" class="motorelements" onclick="setOnetime(this)">
+                    <img src="style/loop.png" class="motorelements" onclick="setLoop(this)">
+
+                </li>
+            </ul>
+    </div>
+    <div id="run" style="position:absolute;left:400px;top:345px;height:70;width:75;">
+          <img src="style/run.png" id="Run" style="position:absolute;left:5px;top:5px;height:60px;width:65px;cursor:pointer" onclick="runCommand(this)"></imag>
+    </div>
+    <form name="trigger">
+        <textarea type="text" row="1" cols="5"value="0" id="currentCommand" style="position:absolute;top:90%;left:10%"onChange="console.log('trigger changed')">0</textarea>
+    </form>
+</div>
+
+    <!--<div id="admin">
+
+     <h3 id="bindingInfo">bindingInfo</h3>
+     <h3 id='bingingip'></h3>
+     <h3 id="test_result"></h3>
+
+
+     <button onclick="unbind()" class="btn btn-primary">Test</button>
+
+
+   </div>-->
+</div>
+
+
+
+
+
+
+</body>
+</html>

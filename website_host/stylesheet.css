@@ -1,0 +1,181 @@
+body{
+  background-image: url("style/background.jpg");
+}
+
+#smartArea{
+  position: absolute;
+  top:7%;
+  left:50%;
+  width:1200px;
+  height:600px;
+  margin-left:-600px;
+  background-color: black;
+}
+#menu{
+  position: relative;
+  background-color: #99ccff;
+  height:100%;
+  width:20%;
+  float:left;
+}
+#workingArea{
+  background-image: url("style/robolabbackground.png");
+  background-size: 100%;
+  position: relative;
+  height: 100%;
+  width: 80%;
+  float: left;
+}
+#admin{
+  position: relative;
+  background-color: #6600ff;
+  height: 100%;
+  width: 19%;
+  float: left;
+}
+#EV3List{
+  position:absolute;;
+  left:5%;
+  top:5%;
+}
+
+
+#bindingInfo{
+  position:relative;
+  height:10%
+  width:200px;
+  top:5%;
+  text-align: left;
+  color: red;
+}
+
+#componentList{
+  position: relative;
+  height: 70%;
+  width: 90%;
+  left:5%;
+  top:10%;
+  padding:5%;
+  background-color:yellow;
+}
+
+.components{
+  position:relative;
+  width:50%;
+  height:30%;
+  background-color: red;
+  border-style: dashed;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 15%;
+}
+
+#inPopover{
+display:none;
+width:100px;
+height: 100px;
+
+
+}
+.sensorList{
+  display:none;
+  cursor: pointer;
+}
+
+#test_result{
+  color:black;
+}
+
+#bingingip{
+  color:yellow;
+}
+
+#mainRun{
+  position: absolute;
+  left:65%;
+  bottom:90%;
+}
+#stopAll{
+  position: absolute;
+  left:65%;
+  bottom:90%;
+}
+#clearAll{
+    position: absolute;
+    left:55%;
+    bottom:90%
+}
+
+.motorelements{
+  position: relative;
+  width:60px;
+  height: 60px;
+  left:10px;
+  border-color: black;
+  cursor: pointer;
+}
+#motorSection{
+  position: relative;
+  width: 10%;
+}
+
+
+.pretouch{
+    position: static;
+    height:90px;
+    width:70px;
+    top:120px;
+    left:8%;
+    float:left;
+    align-content: flex-end
+}
+.posttouch{
+    position:relative;
+    height:70px;
+    width:70px;
+    top:150px;
+    left:12.5%;
+    float:left;
+}
+#touch1{
+    position: relative;
+    height: 70px;
+    width:70px;
+    top:150px;
+    left:10.5%;
+    float:left;
+    align-items: flex-end
+}
+
+#touch2{
+    position: relative;
+    height: 70px;
+    left:70px;
+    top:150px;
+    left:14.5%;
+    float:left;
+    align-items: flex-end
+}
+
+.selectmenu{
+    width:70px;
+}
+.optionText{
+  font-size: 30px;
+  color: red;
+  text-align: center;
+}
+.commands{
+  position: absolute;
+  width:65px;
+  height:60px;
+  top:350px;
+  cursor: pointer;
+}
+.commands:active{
+background-color: #3e8e41;
+box-shadow: 0 5px #666;
+transform: translateY(4px);
+}
